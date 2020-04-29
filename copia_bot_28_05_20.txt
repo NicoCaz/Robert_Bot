@@ -1,0 +1,50 @@
+const http = require('http');
+const express = require('express');
+const app = express();
+
+//
+app.use(express.static('public'));
+
+app.get("/", function (request, response) {
+  response.sendFile(__dirname + '/views/index.html');
+});
+
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+
+app.listen(process.env.PORT);
+
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`); 
+}, 280000);
+
+
+
+//////////////////////////////////////////////////////////////////// BOT REAL
+
+const Discord = require("discord.js");
+const client = new Discord.Client();
+
+function presence(){
+  client.user.setPresence({
+     status: "online",
+     game: {
+        name: "Estudiando Quimica",
+     }
+  });
+}
+
+client.on("ready", () => {
+    console.log("Lucho se la come");
+    presence();
+ });
+ 
+ client.on("message", (message) => {
+   if(message.content.startsWith("*robert")) {
+     message.channel.send("este es un mensaje de prueba");
+   }
+ 
+ });
+ 
+ client.login("NzA0NDY0NzIwNzM1ODk1NzAy.Xqdj1A.oI4hRtIipp7ahsnO2Bn3Kp616B4");

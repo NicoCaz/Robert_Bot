@@ -1,0 +1,18 @@
+instalar:
+
+     npm install sodium
+
+     npm config set msvs_version 2015
+
+     npm install
+////////////////////////////////////////
+
+     npm install ffmpeg-static
+
+///////////////////////////////////////
+
+    npm install node-opus
+////////////////////////////////////////
+
+
+     nps install nodemon 
